@@ -53,6 +53,10 @@ def main():
                 print("5: Exit Password Locker")
 
                 option = input()
+                if option == 4:
+                    break
+                else:
+                    print
                 # while True:
                 # else:
                 #     print("Sorry you did not select a valid code")
