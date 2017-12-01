@@ -39,9 +39,9 @@ def display_credentials():
 def main():
     print("Welcome to PassWord Locker.")
     print('\n')
-    while True:
-        print("Use these short codes to select an option: Create New User use 'cu': Login to your account use 'lg' or 'ex' to exit password locker")
+    print("Use these short codes to select an option: Create New User use 'cu': Login to your account use 'lg' or 'ex' to exit password locker")
 
+    while True:
         short_code = input().lower()
 
         if short_code == 'cu':
@@ -60,7 +60,7 @@ def main():
             print("Confirm Your Password")
             confirm_password = input()
 
-            while(confirm_password != user_password):
+            if confirm_password != user_password:
                 print("Sorry your passwords did not match")
                 print("Enter a password")
                 user_password = input()
@@ -68,7 +68,12 @@ def main():
                 confirm_password = input()
             else:
                 print(f"Congratulations {fname} {lname}! You have created your new account.")
-            while True:
+                print('\n')
+
+        elif short_code = 'lg':
+            print("WELCOME")
+            print("Enter Your UserName")
+
                 print("Please select an option to continue: Use either 1, 2, 3, 4 or 5 to select an option")
                 print("1: View Your saved credentials")
                 print("2: Add new credentials")
@@ -91,29 +96,42 @@ def main():
                         print("Create your password")
                         account_password = input()
                         print(f"Your password is: {account_password}")
-                    elif keyword is not 'gp' or 'n':
-                        print("Please enter a valid Code")
-
-                        # Create and save new credential.
                         save_new_credential(create_new_credential(account_name, account_password))
 
+                    else:
+                        print("Please enter a valid Code")
+
                 elif option == '1':
-                    return display_credentials()
-                # while True:
+                    if display_credentials():
+                        print("Below is a list of all your credentials")
+
+                        for credential in display_credentials():
+                            print(f"ACCOUNT NAME:{credential.account_name}")
+                            print(f"PASSWORD:{credential.account_password}")
+                            print('\n')
+
+                    else:
+                        print('\n')
+                        print("You don't seem to have any contacts yet")
+                        print('\n')
+                    # while True:
                 # else:
                 #     print("Sorry you did not select a valid code")
                 elif option == '5':
                     print("You have Successfully logged out")
-                    break
+
+                elif option == '3':
+                    print("It works")
 
                 else:
                     print("Please enter a valid code")
 
-        elif short_code == 'ex':
-            print("Bye....")
-            break
-        else:
-            print("Please Enter a valid code to continue")
+        # elif short_code == 'ex':
+        #     print("Bye....")
+        #     break
+    else:
+        print("Please Enter a valid code to continue")
+        #
 
 
 if __name__ == '__main__':
