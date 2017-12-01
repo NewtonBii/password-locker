@@ -17,7 +17,7 @@ def main():
     print("Welcome to PassWord Locker.")
     print('\n')
     while True:
-        print("Use these short codes to select an option: Create New User, cu, Login to your Account, lg")
+        print("Use these short codes to select an option: Create New User, cu, Exit Password Locker, ex")
 
         short_code = input().lower()
 
@@ -44,7 +44,20 @@ def main():
                 print("Confirm Your Password")
                 confirm_password = input()
             else:
-                print(f"Congratulations {fname}. You can now create new accounts and store them")
+                print(f"Congratulations {fname} {lname}! You have created your new account.")
+                print("Please select an option to continue")
+                print("1: View Your saved credentials")
+                print("2: Add new credentials")
+                print("3: Remove credentials")
+                print("4: Search credentials")
+                print("5: Exit Password Locker")
+
+                option = input()
+                # while True:
+                # else:
+                #     print("Sorry you did not select a valid code")
+        elif short_code == 'ex':
+            break
 
 
 if __name__ == '__main__':
