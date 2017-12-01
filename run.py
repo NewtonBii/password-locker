@@ -17,7 +17,7 @@ def save_new_user(user):
 
 def create_new_credential(account_name, _account_password):
     """Function to create a new account and its credentials"""
-    new_credential = Credentials(account_name, password)
+    new_credential = Credentials(account_name, account_password)
     return new_credential
 
 
@@ -68,7 +68,6 @@ def main():
                 confirm_password = input()
             else:
                 print(f"Congratulations {fname} {lname}! You have created your new account.")
-
             while True:
                 print("Please select an option to continue: Use either 1, 2, 3, 4 or 5 to select an option")
                 print("1: View Your saved credentials")
@@ -78,19 +77,27 @@ def main():
                 print("5: Log Out")
                 option = input()
 
-                if option == 2:
+                if option == '2':
                     print("Enter The Account Name")
                     account_name = input()
                     print("Enter a password")
                     print("To generate random password enter keyword 'gp' or 'n' to create your own password")
                     keyword = input().lower()
                     if keyword == 'gp':
-                        password = random.randint(111111, 1111111)
-                        print(f"Your password is: {password}")
+                        account_password = random.randint(111111, 1111111)
+                        print(f"Your password is: {account_password}")
+                        print('\n')
                     elif keyword == 'n':
                         print("Create your password")
-                        password = input()
-                elif option == 1:
+                        account_password = input()
+                        print(f"Your password is: {account_password}")
+                    elif keyword is not 'gp' or 'n':
+                        print("Please enter a valid Code")
+
+                        # Create and save new credential.
+                        save_new_credential(create_new_credential(account_name, account_password))
+
+                elif option == '1':
                     return display_credentials()
                 # while True:
                 # else:
@@ -98,6 +105,9 @@ def main():
                 elif option == '5':
                     print("You have Successfully logged out")
                     break
+
+                else:
+                    print("Please enter a valid code")
 
         elif short_code == 'ex':
             print("Bye....")
