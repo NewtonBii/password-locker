@@ -4,3 +4,7 @@ class Account:
     def __init__(self, account_name, password):
         self.account_name = account_name
         self.password = password
+
+
+if __name__ == '__main__':
+    main()
