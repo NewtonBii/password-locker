@@ -41,6 +41,10 @@ class TestCredentials(unittest.TestCase):
 
         self.assertEqual(found_credential.account_name, new_test_credential.account_name)
 
+    def test_display_all_credentials(self):
+        """TestCase to test whether all contacts can be displayed"""
+        self.assertEqual(Credentials.display_credentials(), Credentials.credentials_list)
+
 
 if __name__ == '__main__':
     unittest.main()

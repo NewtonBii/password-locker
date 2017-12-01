@@ -23,3 +23,8 @@ class Credentials:
         for credential in cls.credentials_list:
             if credential.account_name == account_name:
                 return credential
+
+    @classmethod
+    def display_credentials(cls):
+        """Method which displays all current credentials"""
+        return cls.credentials_list
