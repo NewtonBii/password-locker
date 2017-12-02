@@ -15,11 +15,11 @@ This project was generated with Python3.6.
 * If you choose to login(lg), use: 'testuser' as username and '12345' as PassWord
 * If you choose to create a new account, use 'cu' as the code and follow the prompts.
 * Once logged in, you can:
-      * 1: View Your saved credentials.
-      * 2: Add new credentials.
-      * 3: Remove credentials.
-      * 4: Search credentials.
-      * 5: Log Out.
+     1: View Your saved credentials.
+     2: Add new credentials.
+     3: Remove credentials.
+     4: Search credentials.
+     5: Log Out.
 
 ## Running unit tests
 
