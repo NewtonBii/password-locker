@@ -15,7 +15,7 @@ def save_new_user(user):
     user.save_user()
 
 
-def create_new_credential(account_name, _account_password):
+def create_new_credential(account_name, account_password):
     """Function to create a new account and its credentials"""
     new_credential = Credentials(account_name, account_password)
     return new_credential
@@ -37,12 +37,13 @@ def display_credentials():
 
 
 def main():
-    print("Welcome to PassWord Locker.")
-    print('\n')
-    print("Use these short codes to select an option: Create New User use 'cu': Login to your account use 'lg' or 'ex' to exit password locker")
 
     while True:
+        print("Welcome to PassWord Locker.")
+        print('\n')
+        print("Use these short codes to select an option: Create New User use 'cu': Login to your account use 'lg' or 'ex' to exit password locker")
         short_code = input().lower()
+        print('\n')
 
         if short_code == 'cu':
             print("First Name")
@@ -70,11 +71,32 @@ def main():
                 print(f"Congratulations {fname} {lname}! You have created your new account.")
                 print('\n')
 
-        elif short_code = 'lg':
+        elif short_code == 'lg':
             print("WELCOME")
-            print("Enter Your UserName")
+            print("Enter UserName")
+            default_user_name = input()
 
-                print("Please select an option to continue: Use either 1, 2, 3, 4 or 5 to select an option")
+            print("Enter Your password")
+            default_user_password = input()
+            print('\n')
+
+            while default_user_name != 'testuser' or default_user_password != '12345':
+                print("Wrong userName or password. Username 'testuser' and password '12345'")
+                print("Enter UserName")
+                default_user_name = input()
+
+                print("Enter Your password")
+                default_user_password = input()
+
+                print('\n')
+
+            if default_user_name == 'testuser' and default_user_password == '12345':
+                print("YOU HAVE SUCCESSFULLY LOGGED IN!")
+                print('\n')
+                print("Select an option below to continue: Enter 1, 2, 3, 4 or 5")
+                print('\n')
+
+            while True:
                 print("1: View Your saved credentials")
                 print("2: Add new credentials")
                 print("3: Remove credentials")
@@ -83,24 +105,38 @@ def main():
                 option = input()
 
                 if option == '2':
-                    print("Enter The Account Name")
-                    account_name = input()
-                    print("Enter a password")
-                    print("To generate random password enter keyword 'gp' or 'n' to create your own password")
-                    keyword = input().lower()
-                    if keyword == 'gp':
-                        account_password = random.randint(111111, 1111111)
-                        print(f"Your password is: {account_password}")
-                        print('\n')
-                    elif keyword == 'n':
-                        print("Create your password")
-                        account_password = input()
-                        print(f"Your password is: {account_password}")
-                        save_new_credential(create_new_credential(account_name, account_password))
+                    while True:
+                        print("Continue to add? y/n")
 
+                        choice = input().lower()
+                        if choice == 'y':
+                            print("Enter The Account Name")
+                            account_name = input()
+                            print("Enter a password")
+                            print(
+                                "To generate random password enter keyword 'gp' or 'n' to create your own password")
+                            keyword = input().lower()
+                            if keyword == 'gp':
+                                account_password = random.randint(111111, 1111111)
+                                print(f"Account: {account_name}")
+                                print(f"Password: {account_password}")
+                                print('\n')
+                            elif keyword == 'n':
+                                print("Create your password")
+                                account_password = input()
+                                print(f"Account: {account_name}")
+                                print(f"Password: {account_password}")
+                                print('\n')
+
+                            else:
+                                print("Please enter a valid Code")
+
+                            save_new_credential(create_new_credential(
+                                account_name, account_password))
+                        elif choice == 'n':
+                            break
                     else:
-                        print("Please enter a valid Code")
-
+                        print("Please use 'y' for yes or 'n' for no!")
                 elif option == '1':
                     if display_credentials():
                         print("Below is a list of all your credentials")
@@ -119,16 +155,13 @@ def main():
                 #     print("Sorry you did not select a valid code")
                 elif option == '5':
                     print("You have Successfully logged out")
+                    break
 
                 elif option == '3':
                     print("It works")
 
                 else:
                     print("Please enter a valid code")
-
-        # elif short_code == 'ex':
-        #     print("Bye....")
-        #     break
     else:
         print("Please Enter a valid code to continue")
         #
