@@ -135,22 +135,28 @@ def main():
                                 account_name, account_password))
                         elif choice == 'n':
                             break
-                    else:
-                        print("Please use 'y' for yes or 'n' for no!")
+                        else:
+                            print("Please use 'y' for yes or 'n' for no!")
                 elif option == '1':
-                    if display_credentials():
-                        print("Below is a list of all your credentials")
+                    while True:
+                        print("Continue to View? y/n")
+                        choice1 = input().lower()
+                        if choice1 == 'y':
+                            print("Below is a list of all your credentials")
+                            if display_credentials():
 
-                        for credential in display_credentials():
-                            print(f"ACCOUNT NAME:{credential.account_name}")
-                            print(f"PASSWORD:{credential.account_password}")
-                            print('\n')
+                                for credential in display_credentials():
+                                    print(f"ACCOUNT NAME:{credential.account_name}")
+                                    print(f"PASSWORD:{credential.account_password}")
 
-                    else:
-                        print('\n')
-                        print("You don't seem to have any contacts yet")
-                        print('\n')
-                    # while True:
+                            else:
+                                print('\n')
+                                print("You don't seem to have any contacts yet")
+                                print('\n')
+                        elif choice1 == 'n':
+                            break
+                        else:
+                            print("Please use y or n")
                 # else:
                 #     print("Sorry you did not select a valid code")
                 elif option == '5':
