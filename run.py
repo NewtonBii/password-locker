@@ -1,18 +1,10 @@
 #!/usr/bin/env python3.6
+
 import random
 from user import User
 from credentials import Credentials
 
-
-def create_user(fname, lname, email, user_password):
-    """Function to create a new user"""
-    new_user = User(fname, lname, email, password)
-    return new_user
-
-
-def save_new_user(user):
-    """Function to save the new user"""
-    user.save_user()
+# Functions to add credentials
 
 
 def create_new_credential(account_name, account_password):
@@ -29,6 +21,11 @@ def save_new_credential(credentials):
 def find_credential(account_name):
     """Function that finds credentials based on account_name given"""
     return Credentials.find_by_name()
+
+
+def check_existing_credentials(name):
+    """Method that checks whether a particular account and its credentials exist based on searched account_name"""
+    return Credentials.find_by_name(name)
 
 
 def display_credentials():
@@ -126,7 +123,7 @@ def main():
                                 print("Please use 'y' for yes or 'n' for no!")
                     elif option == '1':
                         while True:
-                            print("Continue to View? y/n")
+                            print("Back to Menu? y/n")
                             choice1 = input().lower()
                             if choice1 == 'y':
                                 print("Below is a list of all your credentials")
@@ -143,10 +140,30 @@ def main():
                             elif choice1 == 'n':
                                 break
                             else:
-                                print("Please use y or n")
+                                print("Please use 'y' or 'n'")
                     elif option == '5':
                         print("You have Successfully logged out")
                         break
+
+                    elif option == '4':
+                        while True:
+                            print("Continue? y/n")
+                            option2 = input().lower()
+                            if option2 == 'n':
+                                print("Enter an account name to find credentials")
+
+                                search_name = input()
+
+                                if check_existing_credentials(search_name):
+                                    search_credential = find_credential(search_name)
+                                    print(f"{search_credential.name} '\n' {search_credential.account_password}")
+                                else:
+                                    print("That Contact Does not exist")
+                            elif option2 == 'n':
+                                break
+
+                            else:
+                                print("Please enter a valid code")
 
                     elif option == '3':
                         print("It works")
