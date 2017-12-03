@@ -130,24 +130,29 @@ def main():
                                 print("Please use 'y' for yes or 'n' for no!")
                     elif option == '1':
                         while True:
-                            print("Continue to View? y/n")
-                            choice1 = input().lower()
-                            if choice1 == 'y':
-                                print("Below is a list of all your credentials")
-                                if display_credentials():
+                            print("Below is a list of all your credentials")
+                            if display_credentials():
 
-                                    for credential in display_credentials():
-                                        print(f"ACCOUNT NAME:{credential.account_name}")
-                                        print(f"PASSWORD:{credential.account_password}")
+                                for credential in display_credentials():
+                                    print(f"ACCOUNT NAME:{credential.account_name}")
+                                    print(f"PASSWORD:{credential.account_password}")
 
-                                else:
-                                    print('\n')
-                                    print("You don't seem to have any contacts yet")
-                                    print('\n')
-                            elif choice1 == 'n':
-                                break
                             else:
-                                print("Please use y or n")
+                                print('\n')
+                                print("You don't seem to have any contacts yet")
+                                print('\n')
+
+                            print("Back to Menu? y/n")
+
+                            back = input().lower()
+                            if back == 'y':
+                                break
+                            elif back == 'n':
+                                continue
+                            else:
+                                print("Please Enter a valid code")
+                                continue
+
                     elif option == '5':
                         print("WARNING! You will loose all your credentials if you log out. Are you sure? y/n")
                         logout = input().lower()
@@ -270,24 +275,31 @@ def main():
                             print("Please use 'y' for yes or 'n' for no!")
                 elif option == '1':
                     while True:
-                        print("Continue to View? y/n")
-                        choice1 = input().lower()
-                        if choice1 == 'y':
-                            print("Below is a list of all your credentials")
-                            if display_credentials():
+                        print("Below is a list of all your credentials")
+                        if display_credentials():
 
-                                for credential in display_credentials():
-                                    print(f"ACCOUNT NAME:{credential.account_name}")
-                                    print(f"PASSWORD:{credential.account_password}")
+                            for credential in display_credentials():
+                                print(f"ACCOUNT NAME:{credential.account_name}")
+                                print(f"PASSWORD:{credential.account_password}")
 
-                            else:
-                                print('\n')
-                                print("You don't seem to have any contacts yet")
-                                print('\n')
-                        elif choice1 == 'n':
-                            break
                         else:
-                            print("Please use y or n")
+                            print('\n')
+                            print("You don't seem to have any contacts yet")
+                            print('\n')
+
+                        print("Back to Menu? y/n")
+
+                        back = input().lower()
+                        if back == 'y':
+                            break
+                        elif back == 'n':
+                            continue
+                        else:
+                            print("Please Enter a valid code")
+                        # elif choice1 == 'n':
+                        #     break
+                        # else:
+                        #     print("Please use y or n")
                 elif option == '5':
                     print("WARNING! You will loose all your credentials if you log out. Are you sure? y/n")
                     logout = input().lower()
