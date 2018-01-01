@@ -1,6 +1,6 @@
 # PASSWORD LOCKER
 
-This project was generated with Python3.6.
+This project was generated with ```Python3.6.```
 
 ## Installation
 
@@ -12,15 +12,16 @@ This project was generated with Python3.6.
 # Usage
 
 * Once you launch, You can either create a new user, or login or exit the application.
-* If you choose to login(lg), use: 'testuser' as username and '12345' as PassWord
-* If you choose to create a new account, use 'cu' as the code and follow the prompts.
+* If you choose to ```login(lg),``` use: ```testuser``` as username and ```12345``` as PassWord
+* If you choose to create a new account, use ```cu``` as the code and follow the prompts.
 * Once logged in, you can:
+```
      1: View Your saved credentials.
      2: Add new credentials.
      3: Remove credentials.
      4: Search credentials.
      5: Log Out.
-
+```
 ## Running unit tests
 
 * Run ```python3.6 credentials_test.py``` for credential class tests.
@@ -33,7 +34,7 @@ You can still use the default login but if you exit the app, you will still loos
 
 ## Further help
 For additions, submit a pull request and once approved you can make contributions at will.
-Alternatively contact me at: biinewton382@gmail.com
+Alternatively contact me at: ```biinewton382@gmail.com```
 
 # License
 
