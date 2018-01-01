@@ -7,7 +7,7 @@ This project was generated with Python3.6.
 * Clone this repository to your local computer.
 * Ensure you have python3.6 installed in your computer.
 * From the terminal navigate to the cloned project folder.
-* Run 'python3.6 run.py' code in the terminal to launch.
+* Run ```python3.6 run.py``` code in the terminal to launch.
 
 # Usage
 
@@ -23,8 +23,8 @@ This project was generated with Python3.6.
 
 ## Running unit tests
 
-* Run 'python3.6 credentials_test.py' for credential class tests.
-* Run 'python3.6 test_user.py' for user class tests.
+* Run ```python3.6 credentials_test.py``` for credential class tests.
+* Run ```python3.6 test_user.py``` for user class tests.
 
 # Bugs.
 
